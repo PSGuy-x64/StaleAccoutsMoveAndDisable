@@ -10,7 +10,7 @@
     .
 
 .EXAMPLE
-    .\StaleAccount.ps1  -Days 100 -moveto 'OU=Disabled,OU=Corp,DC=Contoso,DC=com'
+    .\StaleAccount1.ps1  -Days 100 -moveto 'OU=Disabled,OU=Corp,DC=Contoso,DC=com'
 
 .INPUTS
    'C:\script\input.csv '  

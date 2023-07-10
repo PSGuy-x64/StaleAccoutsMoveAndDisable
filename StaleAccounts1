@@ -40,7 +40,7 @@ Param (
 )
 
 #---------------------------------------------------------[   Initialisations  ]--------------------------------------------------------
- Start-Transcript C:\script\StaleAccounts_Transcript.log -Append -Force | Out-Null
+ Start-Transcript .\StaleAccounts_Transcript.log -Append -Force | Out-Null
  $LastMonth = $(((Get-Date).AddDays(-$Days)).ToFileTime())
  $today = Get-Date
  $i = 1
@@ -53,7 +53,7 @@ Param (
 #---------------------------------------------------------[      Execution     ]--------------------------------------------------------
 
  $accounts = Get-ADUser -LDAPFilter "(&(lastLogonTimeStamp>=$LastMonth)(SamAccountName=kra))" -pr * | Select SamAccountName,enabled,LastLogonDate,@{N='Days';E={($today-$_.LastLogonDate).Days;}},canonicalname,objectguid
- $accounts | Export-Csv -NoTypeInformation C:\script\backup.csv -Force
+ $accounts | Export-Csv -NoTypeInformation .\StaleAccounts_backup.csv -Force
  $accounts | ft
 
  $accounts | % { Write-Host "Moving [$i] $($_.canonicalname)" -f Green ; Disable-ADAccount $_.objectguid ; Move-ADObject $_.objectguid -TargetPath $Moveto ; $i++ }

@@ -55,7 +55,9 @@ Param (
  $accounts = Get-ADUser -LDAPFilter "(&(lastLogonTimeStamp>=$LastMonth)(SamAccountName=kra))" -pr * | Select SamAccountName,enabled,LastLogonDate,@{N='Days';E={($today-$_.LastLogonDate).Days;}},canonicalname,objectguid
  $accounts | Export-Csv -NoTypeInformation .\StaleAccounts_backup.csv -Force
  $accounts | ft
-
+ Write-Host 'proceed moving ' -f Yellow -NoNewline
+ Write-Host $accounts.count 'accounts' -b White -f Black 
+ Write-Host ' ' 
  $accounts | % { Write-Host "Moving [$i] $($_.canonicalname)" -f Green ; Disable-ADAccount $_.objectguid ; Move-ADObject $_.objectguid -TargetPath $Moveto ; $i++ }
 #---------------------------------------------------------[      Notfication   ]--------------------------------------------------------
 

@@ -3,7 +3,7 @@ Move&amp;Disable accounts not logon since X days.
 
 Example : .\StaleAccount.ps1  -Days 100 -moveto 'OU=Disabled,OU=Corp,DC=Contoso,DC=com'
 
-![image](https://github.com/PSGuy-x64/StaleAccoutsMoveAndDisable/assets/130890375/678a8fda-2a9e-4da6-9bd5-96a9b7cb5fc0)
+![image](https://github.com/PSGuy-x64/StaleAccoutsMoveAndDisable/assets/130890375/ece492d5-922b-4f57-9dda-91713161e18c)
 
 CSV Report :
 

@@ -12,6 +12,7 @@ CSV Report :
 NOTES: 
 USE SCRIPT IN YOUR RSIK
 
+
 Risk Mitigation:
 Test first in test enviroment,
 Do backup before proceed,
@@ -19,3 +20,5 @@ Proceed in production in waves,
 Start with lmimited no of users,
 One day between waves without changes,
 Prepare restoreplan incase of need.
+
+Contact AUthor in case of urgent support, psguy-x64@outlook.com
